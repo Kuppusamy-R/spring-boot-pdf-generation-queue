@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "d1a6604e-ee17-4eb6-babb-19aec078f17f",
+		"name": "PDF Generation Service (Queue)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31844376"
+	},
+	"item": [
+		{
+			"name": "Convert HTML to PDF (2 Page PDF)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"htmlContent\": \"<!DOCTYPE html>\\n<html lang=\\\"en\\\">\\n<head>\\n    <meta charset=\\\"UTF-8\\\"\\/>\\n    <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\"\\/>\\n    <title>PDF Example</title>\\n    <style>\\n        body {\\n            font-family: Arial, sans-serif;\\n            margin: 20px;\\n            line-height: 1.6;\\n        }\\n        .page-break {\\n            page-break-before: always;\\n        }\\n        h1, h2, h3 {\\n            color: #333;\\n        }\\n        p {\\n            margin: 0 0 15px;\\n        }\\n        .footer {\\n            position: fixed;\\n            bottom: 0;\\n            width: 100%;\\n            text-align: center;\\n            font-size: 12px;\\n            color: #888;\\n        }\\n        table {\\n            width: 100%;\\n            border-collapse: collapse;\\n            margin: 20px 0;\\n        }\\n        table, th, td {\\n            border: 1px solid #ddd;\\n        }\\n        th, td {\\n            padding: 8px;\\n            text-align: left;\\n        }\\n        th {\\n            background-color: #f4f4f4;\\n        }\\n    </style>\\n</head>\\n<body>\\n    <h1>Page One</h1>\\n    <table>\\n        <thead>\\n            <tr>\\n                <th>Header 1</th>\\n                <th>Header 2</th>\\n                <th>Header 3</th>\\n            </tr>\\n        </thead>\\n        <tbody>\\n            <tr>\\n                <td>Data 1</td>\\n                <td>Data 2</td>\\n                <td>Data 3</td>\\n            </tr>\\n            <tr>\\n                <td>Data 4</td>\\n                <td>Data 5</td>\\n                <td>Data 6</td>\\n            </tr>\\n            <tr>\\n                <td>Data 7</td>\\n                <td>Data 8</td>\\n                <td>Data 9</td>\\n            </tr>\\n        </tbody>\\n    </table>\\n <p>The is a sample page with Table.</p>\\n    <div class=\\\"page-break\\\"></div>\\n    <h1>Page Two</h1>\\n    <p>This is the second page includes another table</p>\\n    <table>\\n        <thead>\\n            <tr>\\n                <th>Item</th>\\n                <th>Quantity</th>\\n                <th>Price</th>\\n            </tr>\\n        </thead>\\n        <tbody>\\n            <tr>\\n                <td>Item A</td>\\n                <td>10</td>\\n                <td>$100</td>\\n            </tr>\\n            <tr>\\n                <td>Item B</td>\\n                <td>5</td>\\n                <td>$50</td>\\n            </tr>\\n            <tr>\\n                <td>Item C</td>\\n                <td>20</td>\\n                <td>$200</td>\\n            </tr>\\n        </tbody>\\n    </table>\\n    <div class=\\\"footer\\\">\\n        Page 2\\n    </div>\\n</body>\\n</html>\",\r\n    \"callbackUrl\": \"http://localhost:8080/store-pdf\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/convert-html-to-pdf"
+			},
+			"response": []
+		},
+		{
+			"name": "Convert HTML to PDF (Simple PDF)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"htmlContent\": \"<!DOCTYPE html><html lang=\\\"en\\\"><body><h1>First Page</h1></body></html>\",\r\n    \"callbackUrl\": \"localhost:8080/store-pdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/convert-html-to-pdf"
+			},
+			"response": []
+		}
+	]
+}
